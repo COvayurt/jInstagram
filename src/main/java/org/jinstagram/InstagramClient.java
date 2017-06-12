@@ -141,8 +141,7 @@ public interface InstagramClient {
      * @param pagination
      * @throws InstagramException
      */
-    MediaFeed getRecentMediaNextPage(Pagination pagination)
-            throws InstagramException;
+    MediaFeed getRecentMediaNextPage(Pagination pagination) throws InstagramException;
 
     /**
      * Get the next page of user feed objects from a previously executed request
@@ -174,6 +173,16 @@ public interface InstagramClient {
      *             if any error occurs.
      */
     MediaFeed getUserLikedMediaFeed() throws InstagramException;
+
+
+    /**
+     * Get the next page of authenticated user's list of media they've liked.
+     * request
+     *
+     * @param pagination
+     * @throws InstagramException
+     */
+    MediaFeed getUserLikedMediaFeedNextPage(Pagination pagination) throws InstagramException;
 
     /**
      * Get the authenticated user's list of media they've liked.

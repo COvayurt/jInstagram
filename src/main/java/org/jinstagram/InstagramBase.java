@@ -259,6 +259,17 @@ public abstract class InstagramBase implements InstagramClient {
         return createInstagramObject(Verbs.GET, MediaFeed.class, Methods.USERS_SELF_LIKED_MEDIA, null);
     }
 
+
+    /* (non-Javadoc)
+     * @see org.jinstagram.InstagramClient#getUserLikedMediaFeedNextPage()
+     */
+    @Override
+    public MediaFeed getUserLikedMediaFeedNextPage(Pagination pagination) throws InstagramException {
+        PaginationHelper.Page page = PaginationHelper.parseNextUrl(pagination, config.getApiURL());
+
+        return createInstagramObject(Verbs.GET, MediaFeed.class, Methods.USERS_SELF_LIKED_MEDIA, page.getQueryStringParams());
+    }
+
     /* (non-Javadoc)
      * @see org.jinstagram.InstagramClient#getUserLikedMediaFeed(long, int)
      */
@@ -535,6 +546,8 @@ public abstract class InstagramBase implements InstagramClient {
 
         return createInstagramObject(Verbs.GET, LikesFeed.class, apiMethod, null);
     }
+
+
 
     /* (non-Javadoc)
      * @see org.jinstagram.InstagramClient#setUserLike(java.lang.String)
